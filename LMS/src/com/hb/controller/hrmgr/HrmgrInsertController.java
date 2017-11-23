@@ -7,6 +7,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.Response;
+
+import org.apache.catalina.ha.backend.Sender;
+
+import com.hb.model.hrmgr.HrmgrAddDao;
+import com.hb.model.hrmgr.HrmgrInsertDao;
 
 @WebServlet("/hrmgrinsert.do")
 public class HrmgrInsertController extends HttpServlet{
@@ -15,9 +21,14 @@ public class HrmgrInsertController extends HttpServlet{
 			throws ServletException, IOException {
 		
 		req.setCharacterEncoding("UTF-8");
-		String id=req.getParameter("hrid");
-		String name= req.getParameter("hrname");
-		String hrteam=req.getParameter("hrteam");
-		System.out.println(id+":"+name+":"+hrteam);
+		String param=req.getParameter("hrid");
+		int hrid= Integer.parseInt(param);
+		String hrname= req.getParameter("hrname");
+		String hrteam=req.getParameter("hrteam");		
+		HrmgrInsertDao dao = new HrmgrInsertDao();
+		
+		dao.insertHr(hrid, hrname, hrteam);
+		
+		resp.sendRedirect("./lmsindex.do"); // 임시용 메인화면가기 
 	}
 }
