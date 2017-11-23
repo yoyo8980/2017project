@@ -10,7 +10,7 @@
 <body>
 	<h1>입력페이지</h1>
 	<div>
-		<form action="hrmgrinsert.do" method="get">
+		<form action="hrmgrinsert.do" method="post">
 			<p>ID:<input type="text" name="hrid"/></p>
 			<p>NAME:<input type="text" name="hrname"/></p>	   
     Team:<select name="hrteam">

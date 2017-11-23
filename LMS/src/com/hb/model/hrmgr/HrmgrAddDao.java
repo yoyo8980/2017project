@@ -40,5 +40,9 @@ public class HrmgrAddDao {
 			}
 		}
 		return list;
-	}	
+	}
+	
+	public void insertHr(){
+		
+	}
 }
