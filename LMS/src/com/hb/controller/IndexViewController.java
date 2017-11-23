@@ -19,10 +19,7 @@ public class IndexViewController extends HttpServlet{
 			throws ServletException, IOException {
 		IndexDao dao= new IndexDao();
 		ArrayList<IndexDto> list= dao.indexView();
-				System.out.println(list.size());
-		for(int i=0; i<list.size(); i++){
-			System.out.println(list.get(i));
-		}
+		
 		req.setAttribute("list", list);
 		req.getRequestDispatcher("lmsindex.jsp").forward(req, resp);	
 	}

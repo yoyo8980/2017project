@@ -22,7 +22,7 @@
         <tr>
           <td>${bean.lecId }</td>
           <td>${bean.lecName }</td>
-          <td>null!</td>
+          <td>${bean.sid }</td>
         </tr>
  	 </c:forEach>
      </div>   
