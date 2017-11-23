@@ -1,4 +1,4 @@
-package com.hb.model;
+package com.hb.model.index;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.hb.util.MyOracle;
 
+import com.hb.util.MyOracle;
 
 public class IndexDao {
 	Connection conn;
