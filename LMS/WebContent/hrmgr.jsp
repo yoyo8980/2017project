@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>		
-	<a href="hrmgradd.do?root=add">입력</a>
-	<a href="hrmgredit.do?root=edit">수정</a>
-	<a href="hrmgrdelete.do?root=delete">삭제</a>
+	<a href="hrmgr.do?root=add">입력</a>
+	<a href="hrmgr.do?root=edit">수정</a>
+	<a href="hrmgr.do?root=delete">삭제</a>
 	
 </body>
 </html>

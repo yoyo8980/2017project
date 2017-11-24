@@ -9,7 +9,7 @@
 <body>
 	<h1>삭제페이지</h1>
 	<div>
-		<form action="hrmgrdelete.do" method="get">
+		<form action="hrmgrdelete.do" method="post">
 			<p>ID:<input type="text" name="hrid"/></p>
 			<p>NAME:<input type="text" name="hrname"/></p>
 			<p>TEAM<input type="text" name="hrteam"/></p>

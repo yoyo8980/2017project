@@ -50,7 +50,6 @@
 	</div>
     <div>
 		<a href="hrmgr.do?root="">*계정 관리</a>
-	</div>
-	
+	</div>	
 </body>
 </html>

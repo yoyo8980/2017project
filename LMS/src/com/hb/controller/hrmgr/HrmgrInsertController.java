@@ -19,7 +19,7 @@ public class HrmgrInsertController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
+	
 		req.setCharacterEncoding("UTF-8");
 		String param=req.getParameter("hrid");
 		int hrid= Integer.parseInt(param);
