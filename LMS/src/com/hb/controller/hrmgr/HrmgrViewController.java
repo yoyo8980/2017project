@@ -17,8 +17,11 @@ public class HrmgrViewController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-String root=req.getParameter("root");
-		
+		String root=req.getParameter("root");
+		System.out.println("test1");
+		System.out.println(root.getBytes());
+		req.getRequestDispatcher("hrmgr"+root+".jsp").forward(req, resp);
+
 		if(root.equals("add")){
 			HrmgrDao dao= new HrmgrDao();
 			ArrayList<HrmgrDto> teamList= dao.AddView();		
@@ -36,4 +39,5 @@ String root=req.getParameter("root");
 		}
 		req.getRequestDispatcher("hrmgr"+root+".jsp").forward(req, resp);
 	}
+
 }

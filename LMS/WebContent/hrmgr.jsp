@@ -9,29 +9,33 @@
 <script type="text/javascript">
 $(function(){
 
-	 var furuitSrc= "";
+	 var root= "";
 
-	 $(document).on("click",".a",function(){
-		 var furuitSrc= $(".a").attr('value');
-			alert(furuitSrc); 
+	$(document).on("click",".a",function(){
+		 var root= $(this).attr('value');
+		
+		 $.ajax({
+				'type':"GET", 
+				'url':"./hrmgr.do",
+				'data':{root:root}, 
+				'error' : function() {
+					alert("에러");
+				},
+				'async':true, 
+				'success': function(){
+					window.location.replace("hrmgr.do");
+				}
+			}); 
 	 });
-
-	$.ajax({
-		type:"POST", 
-		url:"/LMS/hrmgr.do",
-
-		data:{furuitSrc:furuitSrc}, 
-		async:false, 
-		success: function(data){						
-		}
-	}); 
+	
+	
 }); 
 </script>
 </head>
 <body>
-	<a class="a" href="javascript:;" id="add">add</a>
-	<a class="a" href="javascript:;" id="edit">edit</a>
-	<a class="a" href="javascript:;" id="delete">delete</a>
+	<a class="a" href="javascript:;" value="add">입력</a>
+	<a class="a" href="javascript:;" value="edit">수정</a>
+	<a class="a" href="javascript:;" value="delete">삭제</a>
 		
 </body>
 </html>

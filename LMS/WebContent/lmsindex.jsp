@@ -49,7 +49,7 @@
 		<a href="board01.do">*상담 게시판</a>
 	</div>
     <div>
-		<a href="hrmgr.do?root="">*계정 관리</a>
+		<a href="hrmgr.do?root=""">*계정 관리</a>
 	</div>	
 </body>
 </html>
