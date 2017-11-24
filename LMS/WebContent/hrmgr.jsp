@@ -9,7 +9,6 @@
 <body>		
 	<a href="hrmgr.do?root=add">입력</a>
 	<a href="hrmgr.do?root=edit">수정</a>
-	<a href="hrmgr.do?root=delete">삭제</a>
-	
+	<a href="hrmgr.do?root=delete">삭제</a>	
 </body>
 </html>
