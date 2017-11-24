@@ -1,5 +1,5 @@
 package com.hb.controller.hrmgr;
 
-public class HrmgrEditController {
+public class HrmgrEditController{
 
 }

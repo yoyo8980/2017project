@@ -11,13 +11,13 @@
 	<h1>입력페이지</h1>
 	<div>
 		<form action="hrmgrinsert.do" method="post">
-		<c:forEach items="${teamlist }" var="bean" begin="6" end="7">
+		<c:forEach items="${teamlist }" var="bean" begin="6" end="6">
 				<p>ID:<input type="text" name="hrid" value="${bean.hrid }" readonly="readonly"/></p>
 		</c:forEach>
 			<p>NAME:<input type="text" name="hrname"/></p>	   
     Team:<select name="hrteam">
     	  <option>선택하세요</option>
-    	  <c:forEach items="${teamlist }" var="bean">   	  		
+    	  <c:forEach items="${teamlist }" var="bean" begin="0" end="5">   	  		
           		<option value="${bean.team}">${bean.team}</option>
           </c:forEach>
         </select>        

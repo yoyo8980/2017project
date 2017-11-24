@@ -19,15 +19,15 @@ public class HrmgrAddDao {
 		String teamSql="select team from hrlist group by team having count(team)>0";
 		String idSql="select max(hrid) as hrid from hrlist";
 		conn=MyOracle.getConnection();
-		boolean rsChk=true;
+	
 		try{
 			pstmt=conn.prepareStatement(teamSql);
 			rs=pstmt.executeQuery();
 			list = new ArrayList<HrmgrAddDto>();
 			
 			while(rs.next()){
-				HrmgrAddDto bean= new HrmgrAddDto();
-				bean.setTeam(rs.getString("team"));	//부서명 자동부여 
+				HrmgrAddDto bean= new HrmgrAddDto();		
+				bean.setTeam(rs.getString("team"));	//부서명 자동부여			
 				list.add(bean);
 			}
 			

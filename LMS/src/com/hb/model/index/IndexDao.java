@@ -19,7 +19,7 @@ public class IndexDao {
 	
 	ArrayList<IndexDto> list;
 	public ArrayList<IndexDto> indexView(){
-		String sql="select lecid,lecname from lectures where status='¿î¿µÁß'";
+		String sql="select lecid,lecname from lectures where status='opened'";
 		String sql2="select count(sid) as cnt from stu where regclass = ? ";
 		conn=MyOracle.getConnection();
 		try{
@@ -33,11 +33,11 @@ public class IndexDao {
 				bean.setLecName(rs.getString("lecname"));
 				int lecCnt= bean.getLecId();
 				
+				
 				pstmt2=conn.prepareStatement(sql2);		
 				pstmt2.setInt(1, lecCnt);
 				rs2=pstmt2.executeQuery();
 				rs2.next();
-
 				bean.setSid(rs2.getInt("cnt"));
 				list.add(bean);		
 			}				
