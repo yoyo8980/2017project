@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hb.model.LecDao;
-@WebServlet("/stuview.do")
+/*@WebServlet("#")
 public class LecViewController extends HttpServlet{
 
 	@Override
@@ -31,4 +31,4 @@ public class LecViewController extends HttpServlet{
 		// TODO Auto-generated method stub
 
 	}
-}
+}*/
