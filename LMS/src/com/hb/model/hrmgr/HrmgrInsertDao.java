@@ -20,7 +20,7 @@ public class HrmgrInsertDao {
 			pstmt.setString(3, hrteam);
 			
 			int cnt=pstmt.executeUpdate();
-			System.out.println(cnt);
+		
 		}catch(Exception e){	
 		}finally{
 			try{

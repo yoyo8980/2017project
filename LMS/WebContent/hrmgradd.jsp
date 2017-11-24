@@ -11,7 +11,9 @@
 	<h1>입력페이지</h1>
 	<div>
 		<form action="hrmgrinsert.do" method="post">
-			<p>ID:<input type="text" name="hrid"/></p>
+		<c:forEach items="${teamlist }" var="bean" begin="6" end="7">
+				<p>ID:<input type="text" name="hrid" value="${bean.hrid }" readonly="readonly"/></p>
+		</c:forEach>
 			<p>NAME:<input type="text" name="hrname"/></p>	   
     Team:<select name="hrteam">
     	  <option>선택하세요</option>
