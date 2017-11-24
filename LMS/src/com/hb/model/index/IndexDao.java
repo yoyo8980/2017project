@@ -17,8 +17,9 @@ public class IndexDao {
 	PreparedStatement pstmt2;
 	ResultSet rs2;
 	
-	ArrayList<IndexDto> list;
+	
 	public ArrayList<IndexDto> indexView(){
+		ArrayList<IndexDto> list=null;
 		String sql="select lecid,lecname from lectures where status='opened'";
 		String sql2="select count(sid) as cnt from stu where regclass = ? ";
 		conn=MyOracle.getConnection();

@@ -10,15 +10,15 @@ import com.hb.util.MyOracle;
 
 public class HrmgrDao {
 	
-	Connection conn;
+	Connection conn=MyOracle.getConnection();
 	PreparedStatement pstmt;
 	ResultSet rs;
-	ArrayList<HrmgrDto> list;
 	
 	public ArrayList<HrmgrDto> AddView() {
-		String teamSql="select team from hrlist group by team having count(team)>0";
-		String idSql="select max(hrid) as hrid from hrlist";
-		conn=MyOracle.getConnection();
+		ArrayList<HrmgrDto> list = null;
+		String teamSql="SELECT TEAM FROM HRLIST GROUP BY TEAM HAVING COUNT(TEAM)>0";
+		String idSql="SELECT MAX(HRID) AS HRID FROM HRLIST";
+	
 	
 		try{
 			pstmt=conn.prepareStatement(teamSql);
@@ -52,17 +52,15 @@ public class HrmgrDao {
 		return list;
 	}		
 	public void insertHr(int hrid,String hrname, String hrteam){
-		String sql="insert into HRLIST values (?,?,?)";
-		conn=MyOracle.getConnection();
+		String insOneSql="INSERT INTO HRLIST VALUES (?,?,?)";
+		
 		try{
-			System.out.println("test");			
-			pstmt=conn.prepareStatement(sql);
-			System.out.println(hrid+":"+hrname+":"+hrteam);
+
+			pstmt=conn.prepareStatement(insOneSql);	
 			pstmt.setInt(1, hrid);
 			pstmt.setString(2, hrname);
-			pstmt.setString(3, hrteam);
-			
-			int cnt=pstmt.executeUpdate();
+			pstmt.setString(3, hrteam);			
+			pstmt.executeUpdate();
 		
 		}catch(Exception e){	
 		}finally{
@@ -73,5 +71,73 @@ public class HrmgrDao {
 				
 			}
 		}
+	}
+	public void deleteOne(int hrid){
+		String delOneSql="DELETE FROM HRLIST WHERE HRID=?";		
+		try{
+			pstmt=conn.prepareStatement(delOneSql);
+			pstmt.setInt(1, hrid);
+			pstmt.executeUpdate();
+			System.out.println("test1");
+		}catch(Exception e){	
+		}finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception e){
+				
+			}
+		}
+	}
+	public ArrayList<HrmgrDto> deleteView(){
+		ArrayList<HrmgrDto> list=null;
+		String delViewSql="SELECT * FROM HRLIST";
+		try{
+			pstmt=conn.prepareStatement(delViewSql);
+			rs=pstmt.executeQuery();
+			list = new ArrayList<HrmgrDto>();
+			while(rs.next()){				
+				HrmgrDto bean = new HrmgrDto();				
+				bean.setHrid(rs.getInt("hrid"));				
+				bean.setHrname(rs.getString("hrname"));			
+				bean.setTeam(rs.getString("team"));		
+				list.add(bean);														
+			}
+
+		}catch(Exception e){	
+		}finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception e){				
+			}
+		}
+		return list;
+	}
+	
+	public ArrayList<HrmgrDto> editView(){
+		ArrayList<HrmgrDto> list=null;
+		String delViewSql="SELECT * FROM HRLIST";
+		try{
+			pstmt=conn.prepareStatement(delViewSql);
+			rs=pstmt.executeQuery();
+			list = new ArrayList<HrmgrDto>();
+			while(rs.next()){				
+				HrmgrDto bean = new HrmgrDto();				
+				bean.setHrid(rs.getInt("hrid"));				
+				bean.setHrname(rs.getString("hrname"));			
+				bean.setTeam(rs.getString("team"));		
+				list.add(bean);														
+			}
+
+		}catch(Exception e){	
+		}finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception e){				
+			}
+		}
+		return list;
 	}
 }

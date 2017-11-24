@@ -21,11 +21,19 @@ public class HrmgrViewController extends HttpServlet{
 	
 		if(root.equals("add")){
 			HrmgrDao dao= new HrmgrDao();
-			ArrayList<HrmgrDto> list= dao.AddView();		
-			req.setAttribute("teamlist", list);
-			req.getRequestDispatcher("hrmgr"+root+".jsp").forward(req, resp);
-		}else{
-			req.getRequestDispatcher("hrmgr"+root+".jsp").forward(req, resp);	
+			ArrayList<HrmgrDto> teamList= dao.AddView();		
+			req.setAttribute("list", teamList);
+			
+		}else if(root.equals("delete")){	
+			HrmgrDao dao= new HrmgrDao();
+			ArrayList<HrmgrDto> delList= dao.deleteView();		
+			req.setAttribute("list", delList);	
+			
+		}else if(root.equals("edit")){
+			HrmgrDao dao= new HrmgrDao();
+			ArrayList<HrmgrDto> editList= dao.editView();		
+			req.setAttribute("list", editList);
 		}
+		req.getRequestDispatcher("hrmgr"+root+".jsp").forward(req, resp);
 	}
 }
