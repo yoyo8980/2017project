@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,12 +10,21 @@
 <body>
 	<h1>수정페이지</h1>
 	<div>
-		<form action="hrmgredit.do" method="get">
-			<p>ID:<input type="text" name="hrid"/></p>
-			<p>NAME:<input type="text" name="hrname"/></p>
-			<p>TEAM<input type="text" name="hrteam"/></p>
-			<input type="submit" value="입력" >
-			<input type="submit" value="취소">
+		<form method="post">
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>이름</th>
+					<th>부서</th>
+				</tr>			
+				<c:forEach items="${list }" var="bean">	
+				<tr>					
+					<td><a href="hrmgredit.do?hrid=${bean.hrid }">${bean.hrid }</a></td>
+					<td>${bean.hrname }</td>
+					<td>${bean.team }</td>					
+				</tr>
+				</c:forEach>
+			</table>
 		</form>
 	</div>
 </body>

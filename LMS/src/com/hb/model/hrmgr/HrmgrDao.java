@@ -114,7 +114,25 @@ public class HrmgrDao {
 		}
 		return list;
 	}
-	
+	public void editOne(String hrname, String team,int hrid){
+		String delOneSql="UPDATE HRLIST set hrname=?,team=? WHERE HRID=?";		
+		try{
+			pstmt=conn.prepareStatement(delOneSql);
+			pstmt.setString(1,hrname);
+			pstmt.setString(2, team);
+			pstmt.setInt(3, hrid);
+			pstmt.executeUpdate();
+			System.out.println("test1");
+		}catch(Exception e){	
+		}finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception e){
+				
+			}
+		}
+	}
 	public ArrayList<HrmgrDto> editView(){
 		ArrayList<HrmgrDto> list=null;
 		String delViewSql="SELECT * FROM HRLIST";

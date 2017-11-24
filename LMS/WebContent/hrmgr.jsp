@@ -5,10 +5,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	 var furuitSrc= "";
+
+	 $(document).on("click",".a",function(){
+		 var furuitSrc= $(".a").attr('value');
+			alert(furuitSrc); 
+	 });
+
+	$.ajax({
+		type:"POST", 
+		url:"/LMS/hrmgr.do",
+
+		data:{furuitSrc:furuitSrc}, 
+		async:false, 
+		success: function(data){						
+		}
+	}); 
+}); 
+</script>
 </head>
-<body>		
-	<a href="hrmgr.do?root=add">입력</a>
-	<a href="hrmgr.do?root=edit">수정</a>
-	<a href="hrmgr.do?root=delete">삭제</a>	
+<body>
+	<a class="a" href="javascript:;" id="add">add</a>
+	<a class="a" href="javascript:;" id="edit">edit</a>
+	<a class="a" href="javascript:;" id="delete">delete</a>
+		
 </body>
 </html>

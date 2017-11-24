@@ -17,8 +17,8 @@ public class HrmgrViewController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		String root=req.getParameter("root");
-	
+String root=req.getParameter("root");
+		
 		if(root.equals("add")){
 			HrmgrDao dao= new HrmgrDao();
 			ArrayList<HrmgrDto> teamList= dao.AddView();		

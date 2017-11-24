@@ -16,8 +16,7 @@
 					<th>ID</th>
 					<th>이름</th>
 					<th>부서</th>
-				</tr>
-			
+				</tr>			
 				<c:forEach items="${list }" var="bean">	
 				<tr>					
 					<td><a href="hrmgrdelete.do?hrid=${bean.hrid }">${bean.hrid }</a></td>
