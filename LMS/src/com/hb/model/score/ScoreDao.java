@@ -1,4 +1,4 @@
-package com.hb.model;
+package com.hb.model.score;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.hb.model.score.ScoreDto;
 import com.hb.util.MyOracle;
 
 public class ScoreDao {

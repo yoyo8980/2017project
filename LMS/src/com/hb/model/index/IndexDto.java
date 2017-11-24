@@ -1,4 +1,4 @@
-package com.hb.model;
+package com.hb.model.index;
 
 public class IndexDto {
 	private int lecId;

@@ -1,4 +1,4 @@
-package com.hb.controller;
+package com.hb.controller.stu;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,18 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hb.model.IndexDao;
-import com.hb.model.IndexDto;
 
-@WebServlet("/lmsindex.do")
-public class IndexViewController extends HttpServlet{
+import com.hb.model.stu.StuDao;
+import com.hb.model.stu.StuDto;
+
+@WebServlet("/stu.do")
+public class StuController extends HttpServlet{
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		IndexDao dao= new IndexDao();
-		ArrayList<IndexDto> list= dao.indexView();
+		// TODO Auto-generated method stub
+		StuDao dao=new StuDao();
 		
-		req.setAttribute("list", list);
-		req.getRequestDispatcher("lmsindex.jsp").forward(req, resp);	
-	}
+			req.getRequestDispatcher("stu.jsp").forward(req, resp);
+		}
+	
+	
 }

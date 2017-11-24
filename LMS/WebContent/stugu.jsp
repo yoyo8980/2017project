@@ -12,9 +12,29 @@
 </head>
 <body>
 <h2>학생관리</h2>
-	<h3><a href="stuview.do">수업중인 학생</a></h3>
-	<h3><a href="stucom.do">수료한 학생</a></h3>
+	
 	<h3><a href="stugu.do">포기한 학생</a> </h3>
 	
+	<table border="1">
+			<tr>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>생일</th>
+				<th>전화번호</th>
+				<th>학생이메일</th>
+				<th>반</th>
+			</tr>
+		
+		<c:forEach items="${list3 }" var="bean">
+			<tr>
+				<td>${bean.sId }</td>
+				<td>${bean.sName }</td>
+				<td>${bean.birth }</td>
+				<td>${bean.phone }</td>
+				<td>${bean.email }</td>
+				<td>${bean.regclass }</td>
+			</tr>
+		</c:forEach>
+		</table>
 </body>
 </html>

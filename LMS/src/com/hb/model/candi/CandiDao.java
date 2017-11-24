@@ -1,4 +1,4 @@
-package com.hb.model;
+package com.hb.model.candi;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

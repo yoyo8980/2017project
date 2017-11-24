@@ -1,4 +1,4 @@
-package com.hb.model;
+package com.hb.model.stu;
 
 import java.sql.Date;
 

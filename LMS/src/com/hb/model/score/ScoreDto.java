@@ -1,4 +1,4 @@
-package com.hb.model;
+package com.hb.model.score;
 
 public class ScoreDto {
 	private int scoreid;
