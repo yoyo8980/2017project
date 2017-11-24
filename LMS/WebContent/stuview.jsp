@@ -12,7 +12,24 @@
 </head>
 <body>
 <h2>학생관리</h2>
-	<h3><a href="stuview.do">수업중인 학생</a></h3>
+	<h3>수강중인 학생</h3>
+	<h4>반선택하세요</h4>
+	<div>
+		<%-- <lable for="lecid">반선택</lable>
+		<select name="lecid">
+			<c:forEach items=${lecid } var="lecid">
+				<option>${lecname }</option>
+			</c:forEach>
+		</select> --%>
+		<c:forEach items="${list4 }" var="bean">
+			<tr>
+				<td>${lecid }</td>
+				<td>${lecName }</td>
+				<td>${room }</td>
+			</tr>
+		</c:forEach>
+	</div>
+	<br/>
 	<a href="stuadd.do">학생추가</a>
 	
 		<table border="1">

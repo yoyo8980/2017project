@@ -28,7 +28,7 @@ public class StuDao {
 				StuDto bean= new StuDto();
 				bean.setsId(rs.getInt("sId"));
 				bean.setsName(rs.getString("sName"));
-				bean.setBirth(rs.getDate("birth"));
+				bean.setBirth(rs.getString("birth"));
 				bean.setPhone(rs.getString("phone"));
 				bean.setEmail(rs.getString("email"));
 				bean.setRegclass(rs.getInt("regclass"));
@@ -58,7 +58,7 @@ public class StuDao {
 				StuDto bean= new StuDto();
 				bean.setsId(rs.getInt("sId"));
 				bean.setsName(rs.getString("sName"));
-				bean.setBirth(rs.getDate("birth"));
+				bean.setBirth(rs.getString("birth"));
 				bean.setPhone(rs.getString("phone"));
 				bean.setEmail(rs.getString("email"));
 				bean.setRegclass(rs.getInt("regclass"));
@@ -87,7 +87,7 @@ public class StuDao {
 				StuDto bean= new StuDto();
 				bean.setsId(rs.getInt("sId"));
 				bean.setsName(rs.getString("sName"));
-				bean.setBirth(rs.getDate("birth"));
+				bean.setBirth(rs.getString("birth"));
 				bean.setPhone(rs.getString("phone"));
 				bean.setEmail(rs.getString("email"));
 				bean.setRegclass(rs.getInt("regclass"));
@@ -106,18 +106,28 @@ public class StuDao {
 		return list3;
 	}
 	
-	public void Stuadd(int sId,String sName, Date birth, String phone, String email, int regclass){
-		String sql="insert into stu values(?,?,?,?,?,'수강중',?)";
+	public void Stuadd(int sId,String sName, String birth, String phone, String email, int regclass){
+		String sql="insert into stu values(?,?,to_date(?,'yyyy-mm-dd'),?,?,'수강중',?)";
+//		String sql2="update stu set "
 		conn=MyOracle.getConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, sId);
 			pstmt.setString(2, sName);
-			pstmt.setDate(3, birth);
+			pstmt.setString(3, birth);
 			pstmt.setString(4, phone);
 			pstmt.setString(5, email);
-			pstmt.setInt(5, regclass);
+			pstmt.setInt(6, regclass);
 			pstmt.executeUpdate();
+			System.out.println(sql);
+			System.out.println(sId);
+			System.out.println(sName);
+			System.out.println(birth);
+			System.out.println(phone);
+			System.out.println(email);
+			System.out.println(regclass);
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

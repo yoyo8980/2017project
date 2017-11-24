@@ -12,9 +12,9 @@
 </head>
 <body>
 <h2>학생관리</h2>
-	<h3><a href="stuview.do">수업중인 학생</a></h3>
-	<h3><a href="stucom.do">수료한 학생</a></h3>
-	<h3><a href="stugu.do">포기한 학생</a> </h3>
+	<h3><a href="stuview.do">수강중인 학생</a></h3>
+	<h3><a href="stucom.do">수료 학생</a></h3>
+	<h3><a href="stugu.do">포기 학생</a> </h3>
 	
 </body>
 </html>
