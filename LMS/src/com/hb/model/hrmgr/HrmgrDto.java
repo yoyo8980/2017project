@@ -1,10 +1,10 @@
 package com.hb.model.hrmgr;
 
-public class HrmgrAddDto {
+public class HrmgrDto {
 	private String hrteam;
 	private int hrid;
 	
-	public HrmgrAddDto() {
+	public HrmgrDto() {
 		
 	}
 	public String getTeam() {
@@ -22,4 +22,3 @@ public class HrmgrAddDto {
 	}	
 	
 }
-

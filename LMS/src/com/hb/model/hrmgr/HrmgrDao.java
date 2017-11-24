@@ -8,14 +8,14 @@ import java.util.ArrayList;
 
 import com.hb.util.MyOracle;
 
-public class HrmgrAddDao {
+public class HrmgrDao {
 	
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
-	ArrayList<HrmgrAddDto> list;
+	ArrayList<HrmgrDto> list;
 	
-	public ArrayList<HrmgrAddDto> AddView() {
+	public ArrayList<HrmgrDto> AddView() {
 		String teamSql="select team from hrlist group by team having count(team)>0";
 		String idSql="select max(hrid) as hrid from hrlist";
 		conn=MyOracle.getConnection();
@@ -23,10 +23,10 @@ public class HrmgrAddDao {
 		try{
 			pstmt=conn.prepareStatement(teamSql);
 			rs=pstmt.executeQuery();
-			list = new ArrayList<HrmgrAddDto>();
+			list = new ArrayList<HrmgrDto>();
 			
 			while(rs.next()){
-				HrmgrAddDto bean= new HrmgrAddDto();		
+				HrmgrDto bean= new HrmgrDto();		
 				bean.setTeam(rs.getString("team"));	//부서명 자동부여			
 				list.add(bean);
 			}
@@ -35,7 +35,7 @@ public class HrmgrAddDao {
 			rs=pstmt.executeQuery();
 		
 			while(rs.next()){
-				HrmgrAddDto bean= new HrmgrAddDto();				
+				HrmgrDto bean= new HrmgrDto();				
 				bean.setHrid(rs.getInt("hrid")+1);//Id 번호 자동부여 	
 				list.add(bean);								
 			}			
@@ -51,4 +51,27 @@ public class HrmgrAddDao {
 		}
 		return list;
 	}		
+	public void insertHr(int hrid,String hrname, String hrteam){
+		String sql="insert into HRLIST values (?,?,?)";
+		conn=MyOracle.getConnection();
+		try{
+			System.out.println("test");			
+			pstmt=conn.prepareStatement(sql);
+			System.out.println(hrid+":"+hrname+":"+hrteam);
+			pstmt.setInt(1, hrid);
+			pstmt.setString(2, hrname);
+			pstmt.setString(3, hrteam);
+			
+			int cnt=pstmt.executeUpdate();
+		
+		}catch(Exception e){	
+		}finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception e){
+				
+			}
+		}
+	}
 }

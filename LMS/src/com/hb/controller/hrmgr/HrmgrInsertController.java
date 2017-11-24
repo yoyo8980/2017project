@@ -11,8 +11,8 @@ import javax.xml.ws.Response;
 
 import org.apache.catalina.ha.backend.Sender;
 
-import com.hb.model.hrmgr.HrmgrAddDao;
-import com.hb.model.hrmgr.HrmgrInsertDao;
+
+import com.hb.model.hrmgr.HrmgrDao;
 
 @WebServlet("/hrmgrinsert.do")
 public class HrmgrInsertController extends HttpServlet{
@@ -25,7 +25,7 @@ public class HrmgrInsertController extends HttpServlet{
 		int hrid= Integer.parseInt(param);
 		String hrname= req.getParameter("hrname");
 		String hrteam=req.getParameter("hrteam");		
-		HrmgrInsertDao dao = new HrmgrInsertDao();
+		HrmgrDao dao = new HrmgrDao();
 		
 		dao.insertHr(hrid, hrname, hrteam);
 		
