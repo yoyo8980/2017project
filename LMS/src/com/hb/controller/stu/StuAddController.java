@@ -37,7 +37,7 @@ public class StuAddController extends HttpServlet{
 		String regclass=req.getParameter("regclass");
 		
 		int sId=Integer.parseInt(param1);
-		Date birth=req.get
+		Date birth=get
 //		Date sN
 		StuDao dao=new StuDao();
 		try{
