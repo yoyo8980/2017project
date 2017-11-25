@@ -19,7 +19,7 @@ public class IndexDao {
 	
 	ArrayList<IndexDto> list;
 	public ArrayList<IndexDto> indexView(){
-		String sql="select lecid,lecname from lectures where status='운영중'";
+		String sql="select lecid,lecname from lectures where status='opened' or status='waiting'";
 		String sql2="select count(sid) as cnt from stu where regclass = ? ";
 		conn=MyOracle.getConnection();
 		try{
