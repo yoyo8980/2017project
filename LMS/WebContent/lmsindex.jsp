@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
 	<table>
 	<div>
         <tr>
@@ -51,6 +50,5 @@
     <div>
 		<a href="hrmgr.do">*계정 관리</a>
 	</div>
-	
 </body>
 </html>
