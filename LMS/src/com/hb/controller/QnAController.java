@@ -2,6 +2,7 @@ package com.hb.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +23,11 @@ public class QnAController extends HttpServlet {
 		QnADao dao = new QnADao();
 		ArrayList<QnADto> qlist= dao.selectAll();
 		req.setAttribute("questionList", qlist);
+		
+		HashMap<Integer, Integer> replyCnt = dao.replyCnt();
+		System.out.println(replyCnt.size());
+		req.setAttribute("repCnt", replyCnt);
+		
 		req.getRequestDispatcher("qnaboard.jsp").forward(req, resp);
 	}
 	

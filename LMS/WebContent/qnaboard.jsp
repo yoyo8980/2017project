@@ -32,8 +32,12 @@
 		   </td>
 		 </tr>
 		 <tr>
-		 	<td align="right">+</td>
-		 	<td colspan=2>댓글 개수</td>
+		 	<td align="right"></td>
+		 	<td colspan=2>
+		 		댓글 개수: 
+		 		<c:set var="key" value="${bean.qnaid }"></c:set>
+		 		<c:out value="${repCnt[key]}"></c:out>
+		 	</td>
 		 </tr>
 		 </c:forEach>
 	</table>
