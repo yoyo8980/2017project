@@ -22,12 +22,12 @@
 	        
      <c:forEach items="${slist }" var="sbean">   
         <tr>
-          <td>${sbean.Scoreid }</td>
-          <td>${sbean.Subject }</td>
-          <td>${sbean.Stuid }</td>
-          <td>${sbean.Stuname }</td>
-          <td>${sbean.Sclass }</td>
-          <td>${sbean.Score }</td>
+          <td>${sbean.scoreid }</td>
+          <td>${sbean.subject }</td>
+          <td>${sbean.stuid }</td>
+          <td>${sbean.stuname }</td>
+          <td>${sbean.sclass }</td>
+          <td>${sbean.score }</td>
           
         </tr>
  	 </c:forEach> 

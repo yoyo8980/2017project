@@ -1,4 +1,4 @@
-package com.hb.controller.indexview;
+package com.hb.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hb.model.index.IndexDao;
-import com.hb.model.index.IndexDto;
+import com.hb.model.IndexDao;
+import com.hb.model.IndexDto;
 
 @WebServlet("/lmsindex.do")
 public class IndexViewController extends HttpServlet{

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.hb.model.index.IndexDto;
+import com.hb.model.IndexDto;
 import com.hb.util.MyOracle;
 
 
@@ -20,7 +20,7 @@ public class IndexDao {
 	
 	ArrayList<IndexDto> list;
 	public ArrayList<IndexDto> indexView(){
-		String sql="select lecid,lecname from lectures where status='수업중'";
+		String sql="select lecid,lecname from lectures where status='opened' or status='waiting'";
 		String sql2="select count(sid) as cnt from stu where regclass = ? ";
 		conn=MyOracle.getConnection();
 		try{
