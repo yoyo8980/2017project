@@ -5,37 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
-<script type="text/javascript">
-$(function(){
 
-	 var root= "";
-
-	$(document).on("click",".a",function(){
-		 var root= $(this).attr('value');
-		
-		 $.ajax({
-				'type':"GET", 
-				'url':"./hrmgr.do",
-				'data':{root:root}, 
-				'error' : function() {
-					alert("에러");
-				},
-				'async':true, 
-				'success': function(){
-					window.location.replace("hrmgr.do");
-				}
-			}); 
-	 });
-	
-	
-}); 
-</script>
 </head>
 <body>
-	<a class="a" href="javascript:;" value="add">입력</a>
-	<a class="a" href="javascript:;" value="edit">수정</a>
-	<a class="a" href="javascript:;" value="delete">삭제</a>
-		
+	<a class="a" href="hrmgr.do?root=add">입력</a>
+	<a class="a" href="hrmgr.do?root=edit">수정</a>
+	<a class="a" href="hrmgr.do?root=delete">삭제</a>	
 </body>
 </html>
