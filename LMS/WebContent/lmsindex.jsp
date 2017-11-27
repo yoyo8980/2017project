@@ -8,10 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+<%String team = (String)session.getAttribute("power");
+		session.setAttribute("power", team);%>
 	<table>
 	<div>
         <tr>
+          <th><%=team %></th>
           <th>강의ID</th>
           <th>강좌명</th>
           <th>수강생</th>
@@ -50,6 +52,9 @@
 	</div>
     <div>
 		<a href="hrmgr.do?root=""">*계정 관리</a>
-	</div>	
+	</div>
+	
+	
+	
 </body>
 </html>
