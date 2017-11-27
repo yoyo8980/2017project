@@ -158,4 +158,29 @@ public class HrmgrDao {
 		}
 		return list;
 	}
+	
+	public ArrayList<HrmgrDto> superviseView() {
+		ArrayList<HrmgrDto> list=null;
+		String supViewSql="SELECT * FROM HRLIST";
+		try{
+			pstmt=conn.prepareStatement(supViewSql);
+			rs=pstmt.executeQuery();
+			list = new ArrayList<HrmgrDto>();
+			while(rs.next()){				
+				HrmgrDto bean = new HrmgrDto();				
+				bean.setHrid(rs.getInt("hrid"));				
+				bean.setHrname(rs.getString("hrname"));
+				System.out.println(bean.getHrid());
+				list.add(bean);														
+			}
+		}catch(Exception e){	
+		}finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception e){				
+			}
+		}
+		return list;
+	}
 }

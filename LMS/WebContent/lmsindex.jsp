@@ -40,10 +40,10 @@
 		<a href="stu.do">*학생 관리</a>
 	</div>
 	<div>
-		<a href="qanda.do">*후보생 관리</a>
+		<a href="candi.do">*후보생 관리</a>
 	</div>
 	<div>
-		<a href="candi.do">*QnA 관리</a>
+		<a href="qanda.do">*QnA 관리</a>
 	</div>
 	<div>
 		<a href="board01.do">*상담 게시판</a>
