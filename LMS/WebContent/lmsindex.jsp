@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -33,16 +33,16 @@
 		<a href="rollmgr.do">*출결 관리</a>
 	</div>
 	<div>
-		<a href="socre.do">*성적 관리</a>
+		<a href="score.do">*성적 관리</a>
 	</div>
 	<div>
 		<a href="stu.do">*학생 관리</a>
 	</div>
 	<div>
-		<a href="qanda.do">*후보생 관리</a>
+		<a href="candi.do">*후보생 관리</a>
 	</div>
 	<div>
-		<a href="candi.do">*QnA 관리</a>
+		<a href="qanda.do">*QnA 관리</a>
 	</div>
 	<div>
 		<a href="board01.do">*상담 게시판</a>

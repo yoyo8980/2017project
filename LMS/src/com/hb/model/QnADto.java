@@ -1,21 +1,20 @@
 package com.hb.model;
 
-public class Board01Dto {
-	private int emailId;
+public class QnADto {
+	private int qnaid;
 	private String author;
 	private String email;
 	private String phonenum;
-	private String title;
 	private String content;
 	
-	public Board01Dto(){}
+	public QnADto(){}
 
-	public int getEmailId() {
-		return emailId;
+	public int getQnaid() {
+		return qnaid;
 	}
 
-	public void setEmailId(int emailId) {
-		this.emailId = emailId;
+	public void setQnaid(int qnaid) {
+		this.qnaid = qnaid;
 	}
 
 	public String getAuthor() {
@@ -40,14 +39,6 @@ public class Board01Dto {
 
 	public void setPhonenum(String phonenum) {
 		this.phonenum = phonenum;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	public String getContent() {
