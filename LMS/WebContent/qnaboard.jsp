@@ -18,7 +18,7 @@
 		 </tr>
 		 <c:forEach items="${questionList }" var="bean">
 		 <tr>
-		   <td><a href="detail.do?idx=${bean.qnaid }">${bean.qnaid  }</a></td>
+		   <td><a href="qnadetail.do?idx=${bean.qnaid }">${bean.qnaid  }</a></td>
 		   <td>${bean.author }</td>
 		   <td>
 		   		<c:choose>

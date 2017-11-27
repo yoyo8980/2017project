@@ -41,7 +41,6 @@ public class IndexDao {
 				bean.setSid(rs2.getInt("cnt"));
 				list.add(bean);		
 			}				
-			System.out.println("데이터 받아 옴");
 			
 		}catch(Exception e){
 		}finally{
