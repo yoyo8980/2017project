@@ -16,7 +16,7 @@ import com.hb.model.index.IndexDto;
 @WebServlet("/lmsindex.do")
 public class IndexViewController extends HttpServlet{
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		IndexDao dao= new IndexDao();
 		ArrayList<IndexDto> list= dao.indexView();

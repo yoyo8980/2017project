@@ -28,9 +28,16 @@ public class HrmgrViewController extends HttpServlet{
 			ArrayList<HrmgrDto> delList= dao.deleteView();		
 			req.setAttribute("list", delList);	
 			
-		}else if(root.equals("edit")){
+		}else if(root.equals("editview")){
 			HrmgrDao dao= new HrmgrDao();
-			ArrayList<HrmgrDto> editList= dao.editView();		
+			ArrayList<HrmgrDto> editViewList= dao.editView();		
+			req.setAttribute("list", editViewList);
+			
+		}else if(root.equals("edit")){
+			int hrid= Integer.parseInt(req.getParameter("hrid").trim());
+			System.out.println(hrid);
+			HrmgrDao dao= new HrmgrDao();
+			ArrayList<HrmgrDto> editList= dao.editViewOne(hrid);
 			req.setAttribute("list", editList);
 			
 		}else if(root.equals("supervise")){

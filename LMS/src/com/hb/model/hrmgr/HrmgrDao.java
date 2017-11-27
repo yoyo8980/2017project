@@ -115,7 +115,7 @@ public class HrmgrDao {
 		return list;
 	}
 	public void editOne(String hrname, String team,int hrid){
-		String delOneSql="UPDATE HRLIST set hrname=?,team=? WHERE HRID=?";		
+		String delOneSql="UPDATE HRLIST SET HRNAME=?,TEAM=? WHERE HRID=?";		
 		try{
 			pstmt=conn.prepareStatement(delOneSql);
 			pstmt.setString(1,hrname);
@@ -132,6 +132,34 @@ public class HrmgrDao {
 				
 			}
 		}
+	}
+	public ArrayList<HrmgrDto> editViewOne(int hrid){
+		ArrayList<HrmgrDto> list=null;
+		String delViewSql="SELECT * FROM HRLIST WHERE HRID=?";
+		try{
+			pstmt=conn.prepareStatement(delViewSql);
+			pstmt.setInt(1, hrid);
+			rs=pstmt.executeQuery();
+			list = new ArrayList<HrmgrDto>();
+			while(rs.next()){
+				System.out.println(hrid);
+				HrmgrDto bean = new HrmgrDto();	
+				
+				bean.setHrid(rs.getInt("hrid"));				
+				bean.setHrname(rs.getString("hrname"));			
+				bean.setTeam(rs.getString("team"));
+				System.out.println(bean.getHrid()+":"+bean.getHrname()+":"+bean.getTeam());
+				list.add(bean);
+			}
+		}catch(Exception e){	
+		}finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception e){				
+			}
+		}		
+		return list;
 	}
 	public ArrayList<HrmgrDto> editView(){
 		ArrayList<HrmgrDto> list=null;
@@ -162,15 +190,24 @@ public class HrmgrDao {
 	public ArrayList<HrmgrDto> superviseView() {
 		ArrayList<HrmgrDto> list=null;
 		String supViewSql="SELECT * FROM HRLIST";
+		String supViewSql2="SELECT WEBID FROM IDMGR";
 		try{
 			pstmt=conn.prepareStatement(supViewSql);
 			rs=pstmt.executeQuery();
+			
+			PreparedStatement pstmt2;
+			ResultSet rs2;
 			list = new ArrayList<HrmgrDto>();
-			while(rs.next()){				
-				HrmgrDto bean = new HrmgrDto();				
-				bean.setHrid(rs.getInt("hrid"));				
+			while(rs.next()){
+				HrmgrDto bean = new HrmgrDto();
+			
+				bean.setHrid(rs.getInt("hrid"));
 				bean.setHrname(rs.getString("hrname"));
-				System.out.println(bean.getHrid());
+
+				pstmt2=conn.prepareStatement(supViewSql2);
+				rs2=pstmt2.executeQuery();
+				rs2.next();
+				bean.setWebid(rs2.getString("webid"));							
 				list.add(bean);														
 			}
 		}catch(Exception e){	
@@ -182,5 +219,25 @@ public class HrmgrDao {
 			}
 		}
 		return list;
+	}
+	
+	public void supviseOne(int hrid, String id,String pw){
+		String supOneSql="UPDATE idmgr set webid=?,webpw=? WHERE HRID=?";		
+		try{
+			pstmt=conn.prepareStatement(supOneSql);
+			pstmt.setString(1,id);
+			pstmt.setString(2, pw);
+			pstmt.setInt(3, hrid);
+			pstmt.executeUpdate();
+			System.out.println("test1");
+		}catch(Exception e){	
+		}finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception e){
+				
+			}
+		}
 	}
 }

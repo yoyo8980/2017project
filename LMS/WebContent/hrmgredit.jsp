@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,24 +8,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>수정페이지</h1>
-	<div>
-		<form method="post">
-			<table>
-				<tr>
-					<th>ID</th>
-					<th>이름</th>
-					<th>부서</th>
-				</tr>			
-				<c:forEach items="${list }" var="bean">	
-				<tr>					
-					<td><a href="hrmgredit.do?hrid=${bean.hrid }">${bean.hrid }</a></td>
-					<td>${bean.hrname }</td>
-					<td>${bean.team }</td>					
-				</tr>
-				</c:forEach>
-			</table>
-		</form>
-	</div>
+	<form action="hrmgredit.do">
+		<c:forEach items="${list }" var="bean">
+			<div>
+				<label for="hrid">ID</label>
+				<input type="text" name="hrid" value="${bean.hrid }" readonly="readonly"/>
+			</div>
+			<div>
+				<label for="hrname">이름</label>
+				<input type="text" name="hrname" value="${bean.hrname }"/>
+			</div>
+			<div>
+				<label for="team">부서</label>
+				<input type="text" name="team" value="${bean.team }"/>
+			</div>
+		</c:forEach>
+		<div>
+			<button type="submit">수정</button>
+			<button type="reset">취소</button>
+		</div>
+	</form>
 </body>
 </html>

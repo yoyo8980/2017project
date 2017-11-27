@@ -19,11 +19,11 @@
         		</select>
 			</div>
 			<div>
-				<label for="id">ID 입력</label>
-				<input type="text" name="id"/>
+				<label for="id">WebID 입력</label>
+				<input type="text" name="id" value="${bean.webid }"/>
 			</div>
 			<div>
-				<label for="pw">PW 입력</label>
+				<label for="pw">WebPW 입력</label>
 				<input type="text" name="pw"/>
 			</div>
 			<div>
@@ -32,7 +32,7 @@
 			</div>
 			<div>
 				<button type="submit">완료</button>
-				<button type="reset">완료</button>
+				<button type="reset">취소</button>
 			</div>
 		
 		</form>

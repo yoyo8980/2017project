@@ -9,7 +9,7 @@
 </head>
 <body>
 	<p><a class="a" href="hrmgr.do?root=add">[직원입력]</a></p>
-	<p><a class="a" href="hrmgr.do?root=edit">[직원수정]</a></p>
+	<p><a class="a" href="hrmgr.do?root=editview">[직원수정]</a></p>
 	<p><a class="a" href="hrmgr.do?root=delete">[직원삭제]</a></p>
 	<p><a class="a" href="hrmgr.do?root=supervise">[로그인ID/PW관리]</a></p>
 </body>

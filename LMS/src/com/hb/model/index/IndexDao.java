@@ -57,4 +57,8 @@ public class IndexDao {
 		}
 		return list;
 	}
+	
+	public void login(){
+		
+	}
 }

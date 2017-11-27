@@ -4,6 +4,8 @@ public class HrmgrDto {
 	private int hrid;
 	private String hrname;
 	private String team;
+	private String webid;
+	
 	
 	public HrmgrDto() {
 		
@@ -26,6 +28,13 @@ public class HrmgrDto {
 	}
 	public void setHrname(String hrname) {
 		this.hrname = hrname;
+	}
+	public String getWebid() {
+		return webid;
+	}
+	public void setWebid(String webid) {
+		this.webid = webid;
 	}	
+	
 	
 }
