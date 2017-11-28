@@ -32,7 +32,8 @@ public class IndexViewController extends HttpServlet{
 			ArrayList<IndexDto> list= dao2.indexView();			
 			req.setAttribute("list", list);			
 			req.getRequestDispatcher("lmsindex.jsp").forward(req, resp);
-		}		
+		}
+		
 		if(logChk.get(0).getLogChk()){
 			String team=logChk.get(0).getTeam();					
 			session.setAttribute("power", team);

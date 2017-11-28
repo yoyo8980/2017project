@@ -12,7 +12,7 @@
 	<div>
 	
 		<form action="hrmgrinsert.do" method="post">
-		<c:forEach items="${list }" var="bean" begin="5" end="6">
+		<c:forEach items="${list }" var="bean" begin="6" end="6">
 				<p>ID:<input type="text" name="hrid" value="${bean.hrid }" readonly="readonly"/></p>
 		</c:forEach>
 			<p>NAME:<input type="text" name="hrname"/></p>	 

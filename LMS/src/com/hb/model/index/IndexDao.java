@@ -21,7 +21,7 @@ public class IndexDao {
 	
 	public ArrayList<IndexDto> indexView(){
 		ArrayList<IndexDto> list=null;
-		String openSql="SELECT LECID,LECNAME FROM LECTURES WHERE STATUS='opened'";
+		String openSql="SELECT LECID,LECNAME FROM LECTURES WHERE STATUS='opened' or STATUS='waiting'";
 		String cntSql="SELECT COUNT(SID) AS CNT FROM STU WHERE REGCLASS = ? ";
 		conn=MyOracle.getConnection();
 		try{
