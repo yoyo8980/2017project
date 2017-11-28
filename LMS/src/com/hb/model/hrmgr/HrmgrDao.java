@@ -142,13 +142,11 @@ public class HrmgrDao {
 			rs=pstmt.executeQuery();
 			list = new ArrayList<HrmgrDto>();
 			while(rs.next()){
-				System.out.println(hrid);
 				HrmgrDto bean = new HrmgrDto();	
 				
 				bean.setHrid(rs.getInt("hrid"));				
 				bean.setHrname(rs.getString("hrname"));			
 				bean.setTeam(rs.getString("team"));
-				System.out.println(bean.getHrid()+":"+bean.getHrname()+":"+bean.getTeam());
 				list.add(bean);
 			}
 		}catch(Exception e){	
