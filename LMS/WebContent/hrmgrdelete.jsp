@@ -10,7 +10,7 @@
 <body>
 	<h1>삭제페이지</h1>
 	<div>
-		<form method="post">
+		<form method="get">
 			<table>
 				<tr>
 					<th>ID</th>

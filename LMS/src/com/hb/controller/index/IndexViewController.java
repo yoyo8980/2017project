@@ -17,7 +17,7 @@ import com.hb.model.index.IndexDto;
 @WebServlet("/lmsindex.do")
 public class IndexViewController extends HttpServlet{
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		IndexDao dao= new IndexDao();
@@ -25,11 +25,16 @@ public class IndexViewController extends HttpServlet{
 		String webid=req.getParameter("webid");
 		String webpw=req.getParameter("webpw");
 		ArrayList<IndexDto> logChk=dao.loginChk(webid,webpw);
-	
+		HttpSession session = req.getSession();
+		String teamChk=(String)session.getAttribute("power");
 		
+		if(teamChk!=null){
+			ArrayList<IndexDto> list= dao2.indexView();			
+			req.setAttribute("list", list);			
+			req.getRequestDispatcher("lmsindex.jsp").forward(req, resp);
+		}		
 		if(logChk.get(0).getLogChk()){
-			String team=logChk.get(0).getTeam();			
-			HttpSession session = req.getSession();
+			String team=logChk.get(0).getTeam();					
 			session.setAttribute("power", team);
 			
 			ArrayList<IndexDto> list= dao2.indexView();			
@@ -39,6 +44,6 @@ public class IndexViewController extends HttpServlet{
 		}else {
 			System.out.println("tset2");
 			resp.sendRedirect("./lmslogin.jsp");
-		}				
+		}		
 	}
 }

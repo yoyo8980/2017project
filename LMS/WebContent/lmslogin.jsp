@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>로그인 페이지</h1>
-<form action="lmsindex.do" method="post">
+<form action="lmsindex.do" method="get">
     <div>
         <label for="webid">WEBID</label>
         <input type="text" name="webid"/>

@@ -62,7 +62,7 @@ public class IndexDao {
 	
 	
 	public ArrayList<IndexDto> loginChk(String webid,String webpw){
-		String logChkSql="SELECT HRID FROM IDMGR WHERE WEBID=? OR WEBPW=?";
+		String logChkSql="SELECT HRID FROM IDMGR WHERE WEBID=? AND WEBPW=?";
 		String powerSql="SELECT TEAM FROM HRLIST WHERE HRID=?";
 		ArrayList<IndexDto> list=null;
 		int hrid;

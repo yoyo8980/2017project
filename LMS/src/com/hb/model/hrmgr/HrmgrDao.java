@@ -133,7 +133,7 @@ public class HrmgrDao {
 			}
 		}
 	}
-	public ArrayList<HrmgrDto> editViewOne(int hrid){
+	public ArrayList<HrmgrDto> editViewOne(int hrid){ // 직원 정보 1명 보기
 		ArrayList<HrmgrDto> list=null;
 		String delViewSql="SELECT * FROM HRLIST WHERE HRID=?";
 		try{
@@ -161,7 +161,7 @@ public class HrmgrDao {
 		}		
 		return list;
 	}
-	public ArrayList<HrmgrDto> editView(){
+	public ArrayList<HrmgrDto> editView(){ // 수정할 직원 정보 전부보기  
 		ArrayList<HrmgrDto> list=null;
 		String delViewSql="SELECT * FROM HRLIST";
 		try{
@@ -187,7 +187,7 @@ public class HrmgrDao {
 		return list;
 	}
 	
-	public ArrayList<HrmgrDto> superviseView() {
+	public ArrayList<HrmgrDto> superviseView() { // 웹 아이디 목록 이름과 hrid 리스트 출력
 		ArrayList<HrmgrDto> list=null;
 		String supViewSql="SELECT * FROM HRLIST";
 		String supViewSql2="SELECT WEBID FROM IDMGR";
@@ -221,15 +221,14 @@ public class HrmgrDao {
 		return list;
 	}
 	
-	public void supviseOne(int hrid, String id,String pw){
-		String supOneSql="UPDATE idmgr set webid=?,webpw=? WHERE HRID=?";		
+	public void supviseOne(int hrid, String id,String pw){ // 웹아이디 등록
+		String supOneSql="UPDATE IDMGR SET WEBID=?,WEBPW=? WHERE HRID=?";		
 		try{
 			pstmt=conn.prepareStatement(supOneSql);
 			pstmt.setString(1,id);
 			pstmt.setString(2, pw);
 			pstmt.setInt(3, hrid);
 			pstmt.executeUpdate();
-			System.out.println("test1");
 		}catch(Exception e){	
 		}finally{
 			try{
