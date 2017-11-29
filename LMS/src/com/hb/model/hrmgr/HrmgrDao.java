@@ -10,9 +10,9 @@ import com.hb.util.MyOracle;
 
 public class HrmgrDao {
 	
-	Connection conn=MyOracle.getConnection();
-	PreparedStatement pstmt;
-	ResultSet rs;
+	private Connection conn=MyOracle.getConnection();
+	private PreparedStatement pstmt;
+	private ResultSet rs;
 	
 	public ArrayList<HrmgrDto> AddView() {
 		ArrayList<HrmgrDto> list = null;
@@ -78,7 +78,6 @@ public class HrmgrDao {
 			pstmt=conn.prepareStatement(delOneSql);
 			pstmt.setInt(1, hrid);
 			pstmt.executeUpdate();
-			System.out.println("test1");
 		}catch(Exception e){	
 		}finally{
 			try{
@@ -185,7 +184,7 @@ public class HrmgrDao {
 		return list;
 	}
 	
-	public ArrayList<HrmgrDto> superviseView() { // 웹 아이디 목록 이름과 hrid 리스트 출력
+	public ArrayList<HrmgrDto> supviseView() { // 웹 아이디 목록 이름과 hrid 리스트 출력
 		ArrayList<HrmgrDto> list=null;
 		String supViewSql="SELECT * FROM HRLIST";
 		String supViewSql2="SELECT WEBID FROM IDMGR";

@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import com.hb.util.MyOracle;
 
 public class IndexDao {
-	Connection conn;
-	PreparedStatement pstmt;
-	ResultSet rs;
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
 	
-	PreparedStatement pstmt2;
-	ResultSet rs2;
+	private PreparedStatement pstmt2;
+	private ResultSet rs2;
 	
 	
 	public ArrayList<IndexDto> indexView(){

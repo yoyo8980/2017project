@@ -36,9 +36,6 @@ public class IndexDto {
 	public void setHrid(int hrid) {
 		this.hrid = hrid;
 	}
-	public boolean isLogChk() {
-		return logChk;
-	}
 	public void setLogChk(boolean logChk) {
 		this.logChk = logChk;
 	}
